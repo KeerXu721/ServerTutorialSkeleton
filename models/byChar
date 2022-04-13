@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+let Ship = require("../models/Ship");
+
+/**
+ * tell Express.js that when it receives a GET requit at the URl /getShip/, to do this code
+ */
+router.get("/getShip/secondaryBattery", function(req, res){
+    Ship.find({})
+}
+

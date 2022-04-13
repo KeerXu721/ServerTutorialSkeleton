@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
+app.listen(PORT, () => console.info('Server has started on', PORT));
 
 let newShip = require("./routes/newShip");
 
@@ -12,3 +13,6 @@ app.use(bodyParser.json());
 // on a request to /, use the newShip code.
 // note that the entire URL including the one declared in the file must match.
 app.use("/",newShip);
+
+// If you type this instead of CTRL+C CTRL+V, note how Visual Studio Code pops up a mini file explorer when you type require("./).
+const DB = require("./db");
