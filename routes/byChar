@@ -3,11 +3,11 @@ const router = express.Router();
 let Ship = require("../models/Ship");
 
 /**
- * tell Express.js that when it receives a GET requit at the URl /getShip/, to do this code
+ * tell Express.js that when it receives a GET requit at the URl /getShip/secondaryBattery, to do this code
  */
-router.get("/getShip/name", function(req, res){
+router.get("/getShip/secondaryBattery", function(req, res){
     //look up dowuments in MongoDB by name
-    Ship.findOne({name: req.body.name}, function(error, doc){
+    Ship.find({name: req.body.secondaryBattery}, function(error, doc){
         // If there was an error
         if(error){
             console.error("Error finding ship", error);
@@ -23,7 +23,6 @@ router.get("/getShip/name", function(req, res){
             res.send(doc);
         }
     });
-
 });
 
 module.exports = router;
