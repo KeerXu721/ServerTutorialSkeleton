@@ -1,0 +1,28 @@
+const express = require("express");
+const router = express.Router();
+let Ship = require("../models/Ship");
+
+/**
+ * tell Express.js that when it receives a GET requit at the URl /getShip/secondaryBattery, to do this code
+ */
+router.patch("/updateShip", function(req, res){
+    //look up dowuments in MongoDB by name
+    Ship.findOneAndUpdate({name: req.body.name},{new: true}, function(error, doc){
+        // If there was an error
+        if(error){
+            console.error("Error finding ship", error);
+            res.status(400).send(error);
+        }
+        // If no ship with the given name is found
+        else if(!dos){
+            //return HTTP code 404
+            console.error("Error finding ship", error);
+            res.status(404),send(error);
+        }
+        else{
+            res.send(doc);
+        }
+    });
+});
+
+module.exports = router;

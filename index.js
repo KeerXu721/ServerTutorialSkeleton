@@ -8,7 +8,7 @@ app.listen(PORT, () => console.info('Server has started on', PORT));
 
 let newShip = require("./routes/newShip");
 let getShip = require("./routes/getShip");
-let byChar = require("./routes/getShip/secondaryBattery");
+//let byChar = require("./routes/byChar");
 
 // on every request, parse the request body using this library.
 app.use(bodyParser.json());
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // note that the entire URL including the one declared in the file must match.
 app.use("/",newShip);
 app.use("/",getShip);
-app.use("/",byChar);
+//app.use("/",byChar);
 
 // If you type this instead of CTRL+C CTRL+V, note how Visual Studio Code pops up a mini file explorer when you type require("./).
 const DB = require("./db");
